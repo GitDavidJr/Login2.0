@@ -19,3 +19,14 @@ export async function signInRequest(data: SignInRequestData ){
         }
     }
 }
+
+export async function recoverUserInformation() {
+    await delay()
+    return {
+        user: {
+            name: 'David Inacio',
+            email: 'davidjunior051204@gmail.com',
+            avatar_url: 'https://github.com/GitDavidJr.png'
+        }
+    }
+}
