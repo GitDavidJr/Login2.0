@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
   });
 
   async function signIn({ email, password }: SignInData) {
-    const { data: { token, user } } = await signInRequest({ email, password });
+    const { token, user } = await signInRequest({ email, password });
 
     setCookie(undefined, "login2.0.token", token, {
       maxAge: 60 * 60 * 1, // 1 hour
