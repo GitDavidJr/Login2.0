@@ -20,6 +20,12 @@ type AuthContextType = {
   signIn: (data: SignInData) => Promise<void>;
 };
 
+type Response = {
+  token: string;
+  user: User;
+};
+
+
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthProvider({ children }) {
@@ -38,15 +44,21 @@ export function AuthProvider({ children }) {
   });
 
   async function signIn({ email, password }: SignInData) {
-    const { token, user } = await signInRequest({ email, password });
 
-    setCookie(undefined, "login2.0.token", token, {
+    console.log(email, password);
+
+    
+    await signInRequest({ email, password })
+    /*
+    console.log(response)
+
+    setCookie(undefined, "login2.0.token", response.token, {
       maxAge: 60 * 60 * 1, // 1 hour
     });
 
-    setUser(user);
+    setUser(response.user);
 
-    Router.push("/dashboard");
+    Router.push("/dashboard"); */
   }
 
   return (

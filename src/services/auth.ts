@@ -14,15 +14,23 @@ type User = {
 
 
 
-/* export async function signInRequest(data: SignInRequestData ){
+export async function signInRequest(data: SignInRequestData ){
 
+    console.log("Request")
+    console.log(data)
+
+    const response = await api.post('/login', data)
+
+    console.log("Response")
+
+    console.log(response)
     
-    //return await api.post('/login', data) // aparentemente o cors pode esta dando erro, pois consigo fazer requisições http pelo thunder client ou insomnia, mas não consigo fazer pelo front-end
-} */
+    return  // aparentemente o cors pode esta dando erro, pois consigo fazer requisições http pelo thunder client ou insomnia, mas não consigo fazer pelo front-end
+}
 
 const delay = (amount = 750) => new Promise(resolve => setTimeout(resolve,amount))
 
-export async function signInRequest(data: SignInRequestData ){
+/* export async function signInRequest(data: SignInRequestData ){
     await delay()
 
     return {
@@ -33,7 +41,7 @@ export async function signInRequest(data: SignInRequestData ){
             avatar_url: 'https://github.com/GitDavidJr.png'
         }
     }
-}
+} */
 
 export async function recoverUserInformation() {
     await delay()

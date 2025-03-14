@@ -9,8 +9,13 @@ export default function Home() {
   const {register, handleSubmit} = useForm();
   const {signIn} = useContext(AuthContext)
 
-  const handleSingIn = async (data) =>{
-    await signIn(data)
+  interface SignInData {
+    email: string;
+    password: string;
+  }
+
+  const handleSingIn = async (data: SignInData): Promise<void> => {
+    await signIn(data);
   }
 
 
