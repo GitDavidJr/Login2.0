@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
     const { "login2.0.token": token } = parseCookies();
 
     if (token) {
-      recoverUserInformation().then((response) => {
+      recoverUserInformation(token).then((response) => {
         setUser(response.user);
       });
     }
@@ -48,9 +48,7 @@ export function AuthProvider({ children }) {
     console.log(email, password);
 
     
-    await signInRequest({ email, password })
-    /*
-    console.log(response)
+    const response = await signInRequest({ email, password })
 
     setCookie(undefined, "login2.0.token", response.token, {
       maxAge: 60 * 60 * 1, // 1 hour
@@ -58,7 +56,7 @@ export function AuthProvider({ children }) {
 
     setUser(response.user);
 
-    Router.push("/dashboard"); */
+    Router.push("/dashboard"); 
   }
 
   return (
