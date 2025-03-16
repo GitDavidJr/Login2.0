@@ -7,15 +7,17 @@ import { AuthContext } from '../contexts/AuthContext';
 export default function Home() {
 
   const {register, handleSubmit} = useForm();
-  const {signIn} = useContext(AuthContext)
+  const { signUp } = useContext(AuthContext)
 
-  interface SignInData {
+  interface SignUpInData {
+    name: string;
     email: string;
     password: string;
+    gitHub: string;
   }
 
-  const handleSingIn = async (data: SignInData): Promise<void> => {
-    await signIn(data);
+  const handleSignUp = async (data: SignUpInData): Promise<void> => {
+    await signUp(data);
   }
 
 
@@ -28,11 +30,26 @@ export default function Home() {
       <div className="max-w-sm w-full space-y-8">
         <div>
           
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit(handleSingIn)}>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit(handleSignUp)}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
+          <div>
+              <label htmlFor="name" className="sr-only">
+                Name
+              </label>
+              <input
+                {...register('name')}
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Name"
+              />
+            </div>
             <div>
               <label htmlFor="email-address" className="sr-only">
                 Email address
@@ -44,7 +61,7 @@ export default function Home() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -59,28 +76,31 @@ export default function Home() {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+              />
+            </div>
+            <div>
+              <label htmlFor="github" className="sr-only">
+                Name
+              </label>
+              <input
+                {...register('github')}
+                id="github"
+                name="github"
+                type="text"
+                autoComplete="github"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="GitHub"
               />
             </div>
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember_me"
-                name="remember_me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
-                Remember me
-              </label>
-            </div>
-
             <div className="text-sm">
-              <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
-               Don't have an account? Sign up
+              <a href="../" className="font-medium text-indigo-600 hover:text-indigo-500">
+              Already have an account? Sign in
               </a>
             </div>
           </div>
@@ -93,7 +113,7 @@ export default function Home() {
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
               </span>
-              Sign in
+              Sign up
             </button>
           </div>
         </form>

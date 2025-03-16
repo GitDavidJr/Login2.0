@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { signInRequest, recoverUserInformation } from "../services/auth";
+import { signInRequest, recoverUserInformation, signUpRequest } from "../services/auth";
 import { parseCookies, setCookie } from "nookies";
 import Router from "next/router";
 
@@ -7,6 +7,13 @@ type User = {
   name: string;
   email: string;
   avatar_url: string;
+};
+
+type SignUpData = {
+  name: string;
+  email: string;
+  password: string;
+  gitHub: string;
 };
 
 type SignInData = {
@@ -18,6 +25,7 @@ type AuthContextType = {
   isAuthenticated: boolean;
   user: User;
   signIn: (data: SignInData) => Promise<void>;
+  signUp: (data: SignInData) => Promise<void>;
 };
 
 type Response = {
@@ -45,8 +53,6 @@ export function AuthProvider({ children }) {
 
   async function signIn({ email, password }: SignInData) {
 
-    console.log(email, password);
-
     
     const response = await signInRequest({ email, password })
 
@@ -59,8 +65,21 @@ export function AuthProvider({ children }) {
     Router.push("/dashboard"); 
   }
 
+  async function signUp({ name, email, password, gitHub }: SignUpData) {
+
+    const response = await signUpRequest({ name, email, password, gitHub })
+
+    setCookie(undefined, "login2.0.token", response.token, {
+      maxAge: 60 * 60 * 1, // 1 hour
+    });
+
+    setUser(response.user);
+
+    Router.push("/dashboard"); 
+  }
+
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn, signUp }}>
       {children}
     </AuthContext.Provider>
   );
