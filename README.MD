@@ -1,4 +1,4 @@
-# Login2.0
+# login-v2-frontend
 
 Este repositório serve para estudar conceitos de autenticação e login usando Next.js e Tailwind CSS, com foco em JWT (JSON Web Token). Esta é a parte 2, "Login2.0", de outra aplicação que também possui repositório no meu GitHub. A versão anterior utilizava localStorage para armazenar as informações de login, sendo mais suscetível a ataques.
 
