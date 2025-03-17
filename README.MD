@@ -7,6 +7,9 @@ Este repositório serve para estudar conceitos de autenticação e login usando 
 - Next.js
 - Tailwind CSS
 - JWT (JSON Web Token)
+- Fastify (Back-end)
+- Prisma
+- MongoDB (Banco de Dados)
 
 ## Objetivo
 
@@ -16,9 +19,10 @@ O objetivo deste projeto é aprimorar a segurança do processo de login, utiliza
 
 Estou baseando os estudos deste projeto no vídeo [Next.js - Autenticação JWT com back-end próprio - Code/Drops #72 da Rocketseat](https://www.youtube.com/watch?v=pvrKHpXGO8E&t=2398s).
 
-## Link para a Versão 1
+## Links Relacionados
 
-A versão 1 do login, feita apenas com React e styled-components, pode ser encontrada no seguinte link: [Login - Versão 1](https://github.com/GitDavidJr/login)
+- [Login - Versão 1](https://github.com/GitDavidJr/login)
+- [Back-end do Login2.0](https://github.com/GitDavidJr/Login2.0-servidor)
 
 ## Como Executar
 
@@ -35,6 +39,17 @@ A versão 1 do login, feita apenas com React e styled-components, pode ser encon
     ```bash
     npm run dev
     ```
+
+## Estado Atual e Propostas de Melhoria
+
+Atualmente, o projeto permite apenas a criação de conta e autenticação básica. Para uma versão futura, planeja-se:
+
+- Implementar tratamento de erros completo no front-end e back-end
+- Finalizar o CRUD de usuários (atualmente só possui criação)
+- Adicionar validação de formulários
+- Implementar recuperação de senha
+- Adicionar autenticação com providers (Google, GitHub)
+- Implementar refresh token para melhor segurança e experiência do usuário
 
 ## Contribuição
 
