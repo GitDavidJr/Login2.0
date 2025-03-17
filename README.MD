@@ -21,8 +21,8 @@ Estou baseando os estudos deste projeto no vídeo [Next.js - Autenticação JWT 
 
 ## Links Relacionados
 
-- [Login - Versão 1](https://github.com/GitDavidJr/login)
-- [Back-end do Login2.0](https://github.com/GitDavidJr/Login2.0-servidor)
+- [Login - Versão 1](https://github.com/GitDavidJr/login-v1-frontend)
+- [Back-end do Login2.0](https://github.com/GitDavidJr/login-v2-backend)
 
 ## Como Executar
 
