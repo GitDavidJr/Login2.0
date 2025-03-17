@@ -49,7 +49,7 @@ export function AuthProvider({ children }) {
         setUser(response.user);
       });
     }
-  });
+  }, []);
 
   async function signIn({ email, password }: SignInData) {
 
@@ -67,12 +67,14 @@ export function AuthProvider({ children }) {
 
   async function signUp({ name, email, password, gitHub }: SignUpData) {
 
+    
     const response = await signUpRequest({ name, email, password, gitHub })
 
     setCookie(undefined, "login2.0.token", response.token, {
       maxAge: 60 * 60 * 1, // 1 hour
     });
 
+    console.log(response.user);
     setUser(response.user);
 
     Router.push("/dashboard"); 

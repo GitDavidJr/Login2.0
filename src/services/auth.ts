@@ -30,8 +30,8 @@ export async function signUpRequest(data: SignUpData){
 }
 
 export async function recoverUserInformation(token) {
-
-    return (await api.post('/protected-user', null, {
+    
+    return (await api.get('/protected-user', {
         headers: { Authorization: `Bearer ${token}` }
-    })).data
+    })).data;
 }

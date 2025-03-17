@@ -81,15 +81,15 @@ export default function Home() {
               />
             </div>
             <div>
-              <label htmlFor="github" className="sr-only">
-                Name
+              <label htmlFor="gitHub" className="sr-only">
+                Github
               </label>
               <input
-                {...register('github')}
-                id="github"
-                name="github"
+                {...register('gitHub')}
+                id="gitHub"
+                name="gitHub"
                 type="text"
-                autoComplete="github"
+                autoComplete="gitHub"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="GitHub"
